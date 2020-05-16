@@ -1,5 +1,6 @@
 import React from 'react'
 import AndroidIcon from '@material-ui/icons/Android';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 export default function Rule() {
     return (
@@ -17,7 +18,11 @@ export default function Rule() {
             <p>You win the game when the opponent has no more pieces or can't move.</p>
 
             
-            <a href="https://www.ducksters.com/games/checkers_rules.php" target="_blank" >Reference</a>
+            <a href="https://www.ducksters.com/games/checkers_rules.php" target="_blank" > <p>Reference</p> </a>
+            
+            <a href="https://github.com/snow0112/CheckerGame" target="_blank" ><button><GitHubIcon /></button></a>
+
+
 
         </div>
     )
