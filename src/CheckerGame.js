@@ -59,7 +59,7 @@ export default class CheckerGame extends Component {
         var status =  'Next player: ' + (current.nextX? 'Black':'Red')
        
         const moves = history.map( (step,move)=>{
-            const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'Black':'Red') : 'start' )
+            const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'Red':'Black') : 'start' )
             return(
                 <li key = {move}>
                     <buttun onClick = { ()=>this.jumpTo(move) } > {desc}  </buttun>
