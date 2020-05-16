@@ -26,3 +26,5 @@ yarn-error.log*
 src/Broader.css
 src/Game.js
 src/Square.css
+
+README.md
