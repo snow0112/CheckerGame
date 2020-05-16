@@ -9,11 +9,11 @@ import GpsNotFixedIcon from '@material-ui/icons/GpsNotFixed';
 export default function Square(props) {
 
     function chooseIcon(value){
-        if (value === 1) return <AdbIcon style={{ fontSize: 20 }} />
-        if (value === 7) return <AndroidIcon style={{ fontSize: 20 }} />
-        if (value === 2) return <AdbIcon style={{ fontSize: 20, color: '#ff0000' }} />
-        if (value === 9) return <AndroidIcon style={{ fontSize: 20, color: '#ff0000' }} />
-        if (value === 3) return <GpsNotFixedIcon style={{ fontSize: 20, color: '#ffff00' }} />
+        if (value === 1) return <AdbIcon />
+        if (value === 7) return <AndroidIcon />
+        if (value === 2) return <AdbIcon style={{ color: '#ff0000' }} />
+        if (value === 9) return <AndroidIcon style={{ color: '#ff0000' }} />
+        if (value === 3) return <GpsNotFixedIcon style={{ color: '#ffff00' }} />
         
     }
     
