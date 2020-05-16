@@ -56,10 +56,10 @@ export default class CheckerGame extends Component {
 
         const history = this.state.history.slice(0, this.state.stepnum + 1)
         const current = history[history.length -1]
-        var status =  'Next player: ' + (current.nextX? 'X':'O')
+        var status =  'Next player: ' + (current.nextX? 'Black':'Red')
        
         const moves = history.map( (step,move)=>{
-            const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'O':'X') : 'start' )
+            const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'Black':'Red') : 'start' )
             return(
                 <li key = {move}>
                     <buttun onClick = { ()=>this.jumpTo(move) } > {desc}  </buttun>
