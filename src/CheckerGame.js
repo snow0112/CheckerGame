@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Broad from './Broad'
+import Rule from './Rule'
 
 
 
@@ -56,7 +57,7 @@ export default class CheckerGame extends Component {
 
         const history = this.state.history.slice(0, this.state.stepnum + 1)
         const current = history[history.length -1]
-        var status =  'Next player: ' + (current.nextX? 'Black':'Red')
+        var status =  'Your turn: ' + (current.nextX? 'Black':'Red')
        
         const moves = history.map( (step,move)=>{
             const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'Red':'Black') : 'start' )
@@ -74,12 +75,11 @@ export default class CheckerGame extends Component {
             <Broad squares = {current.squares}
                     team = {current.nextX}
                     onClick = { (squares)=> this.handleClick(squares) } />
+            <div><h1>{status}</h1></div>
+            {/*<ul>{moves}</ul>*/}
             </div>
                 <div className="game-info">
-                    <div>{status}</div>
-                    <ul>{moves}</ul>
-                
-                    
+                    <Rule />
                 </div>
             </div>
         )

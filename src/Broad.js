@@ -138,7 +138,7 @@ export class Broad extends Component {
                     {table}
                 </tbody>
             </table>
-            <button onClick = {()=>{this.lastStep()}} >Update</button>
+            {/*<button onClick = {()=>{this.lastStep()}} >Update</button>*/}
             { /*<button onClick = {()=>{this.goBack()}} >Back</button> */}
             </div>
         )
