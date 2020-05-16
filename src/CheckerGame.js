@@ -21,80 +21,14 @@ export default class CheckerGame extends Component {
                 walkable = ! walkable
                 if (walkable) {
                     if (i < 3) squares[i][j] = {team : 0, mobility: 0}
-                    if (i > 4) squares[i][j] = {team : 1, mobility: 0}
+                    if (i >= size - 3) squares[i][j] = {team : 1, mobility: 0}
                 }
             }
         }
-
-        
-
         this.state = {
             history: [ { squares: squares, nextX: true,} ], 
-            stepnum: 0,
-            
+            stepnum: 0,    
         }
-    }
-
-    
-
-    afterChosen(i,j){
-        console.log(i,j)
-        const history = this.state.history.slice(0,this.state.stepnum + 1)
-        const current = history[history.length -1].squares
-        const squares = current.squares
-        const team = current.nextX ? 0 : 1
-        if (squares[i][j] && squares[i][j].team !== team ) {
-            this.setState({chosen:[i,j]})
-            return
-        }
-        
-        var candi = [[3,1]]
-        var x0 = this.state.chosen[0]
-        var y0 = this.state.chosen[1]
-        const mobility = squares[x0][y0].mobolity
-        this.goable(x0, y0, team, mobility, candi)
-        console.log(candi)
-
-        for (let k = 0; k < candi.length; k++){
-            if (i === candi[k][0] && j === candi[k][j]){
-                squares[i][j] = squares[x0][y0]
-                squares[x0][y0] = null
-                this.setState(
-                    { history: history.concat([{squares: squares, nextX: !current.nextX,},]),
-                      stepnum: history.length,
-                      chosen:null
-                })
-            }
-        }
-    }
-
-    Findreachable(i,j, mobility){
-        const history = this.state.history.slice(0,this.state.stepnum + 1)
-        const current = history[history.length -1]
-        const squares = JSON.parse(JSON.stringify(current.squares))
-        const team = current.nextX ? 0 : 1
-
-        var direction
-        if (mobility === 1) direction = [ [1,1],[1,-1],[-1,1],[-1,-1] ]
-        else if (team === 0) direction = [ [1,1],[1,-1] ]
-        else direction = [ [-1,1],[-1,-1] ]
-        
-        for (let k = 0; k < direction; k++){
-            let x = i+direction[k][0]
-            let y = j+direction[k][1]
-            if (!squares[x][y] && !squares[i][j].killed) {
-                squares[x][y].team = team 
-            }else if (squares[x][y] && squares[x][y].team !== team){
-                let x2 = i+2*direction[k][0]
-                let y2 = j+2*direction[k][1]
-                squares[x2][y2].killed = squares[i][j].killed.concat([x,y])
-                this.Findreachable(x2,y2,mobility)
-            }
-            //else if (squares[x][y].team !== team) this.goable(x,y,team,mobility,candi)
-        }
-
-        return
-
     }
 
     

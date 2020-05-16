@@ -109,6 +109,10 @@ export class Broad extends Component {
         this.setState({ squares: this.props.squares})
     }
 
+    goBack(){
+
+    }
+
 
     render() {
 
@@ -117,11 +121,12 @@ export class Broad extends Component {
         const table = this.state.squares.map( (step,move1)=>{
             if (this.state.squares.length%2 === 0) walkable = !walkable
             const row = step.map( (step,move2) =>{
-                let className = walkable? 'walkable': 'nonwalkable'
-                if (this.state.squares[move1[move2]] &&
-                    this.state.squares[move1[move2]].reachable) className = 'reachable'
+                let reachable = this.state.squares[move1[move2]] && this.state.squares[move1[move2]].reachable
+                let className = reachable? 'reachable': (walkable? 'walkable': 'nonwalkable')
                 walkable = ! walkable
-                return <td key = {move2} className = {className} >{this.renderSquare(move1,move2)}</td>
+                return <td key = {move2} 
+                        className = {className} 
+                        >{this.renderSquare(move1,move2)}</td>
             } )
             return(
                 <tr key = {move1}>{row}</tr>
@@ -136,7 +141,7 @@ export class Broad extends Component {
                 </tbody>
             </table>
             <button onClick = {()=>{this.lastStep()}} >Update</button>
-            <button onClick = {()=>{this.goBack()}} >Back</button>
+            { /*<button onClick = {()=>{this.goBack()}} >Back</button> */}
             </div>
         )
     }
