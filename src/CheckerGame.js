@@ -57,7 +57,7 @@ export default class CheckerGame extends Component {
 
         const history = this.state.history.slice(0, this.state.stepnum + 1)
         const current = history[history.length -1]
-        var status =  'Your turn: ' + (current.nextX? 'Black':'Red')
+        var status =  'Player: ' + (current.nextX? 'Black':'Red')
        
         const moves = history.map( (step,move)=>{
             const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'Red':'Black') : 'start' )
@@ -72,11 +72,11 @@ export default class CheckerGame extends Component {
             <div className="game">
             <div className="game-board">
             
-            <Broad squares = {current.squares}
+                <Broad squares = {current.squares}
                     team = {current.nextX}
                     onClick = { (squares)=> this.handleClick(squares) } />
-            <div><h1>{status}</h1></div>
-            {/*<ul>{moves}</ul>*/}
+                <div><h1>{status}</h1></div>
+                {/*<ul>{moves}</ul>*/}
             </div>
                 <div className="game-info">
                     <Rule />

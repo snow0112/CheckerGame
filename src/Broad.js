@@ -83,7 +83,11 @@ export class Broad extends Component {
         var squares = JSON.parse(JSON.stringify(this.state.squares))
         
         const team = this.props.team? 0: 1
-        if ( !squares[i][j] ) return
+        if ( !squares[i][j] ) {
+            this.cleanSquare(squares)
+            this.setState({squares:squares})
+            return
+        }
 
         if (squares[i][j].reachable ){
             console.log('move')
@@ -97,6 +101,10 @@ export class Broad extends Component {
             squares = JSON.parse(JSON.stringify(this.props.squares))
             this.setReachable(i,j,team,squares[i][j].mobility, true ,squares)
             this.setState({ squares: squares})
+        }else{
+            this.cleanSquare(squares)
+            this.setState({squares:squares})
+            return
         }
     }
 
