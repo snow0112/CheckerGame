@@ -1,4 +1,5 @@
 import React from 'react'
+import AndroidIcon from '@material-ui/icons/Android';
 
 export default function Rule() {
     return (
@@ -10,7 +11,7 @@ export default function Rule() {
                 <li>Diagonally in the forward direction (towards the opponent) to the next empty square.</li>
                 <li>If there is one of the opponent's pieces next to a piece and an empty space on the other side, you jump your opponent and remove their piece. You can do multiple jumps if they are lined up in the forward direction.</li>
             </ul>
-            <h2>King Pieces</h2>
+            <h2>King Pieces  <AndroidIcon /> </h2>
             <p>The last row is called the king row. If you get a piece across the board to the opponent's king row, that piece becomes a king. King pieces can move in both directions, forward and backward.</p>
             <h2>Winning</h2>
             <p>You win the game when the opponent has no more pieces or can't move.</p>
