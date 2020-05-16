@@ -31,8 +31,6 @@ export default class CheckerGame extends Component {
         }
     }
 
-    
-
     handleClick(squares){
         const history = this.state.history.slice(0,this.state.stepnum + 1)
         const current = history[history.length -1]
@@ -60,9 +58,6 @@ export default class CheckerGame extends Component {
         const current = history[history.length -1]
         var status =  'Next player: ' + (current.nextX? 'X':'O')
        
-        
-        
-
         const moves = history.map( (step,move)=>{
             const desc = (move? 'Go to move #'+ move +' by '+ (step.nextX? 'O':'X') : 'start' )
             return(

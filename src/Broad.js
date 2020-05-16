@@ -16,13 +16,11 @@ export class Broad extends Component {
         const team = value.team
         const mobility = value.mobility
 
-        if (value.reachable) return 'C'
-        
-
-        if (team === 0 && mobility === 0) return 'x';
-        if (team === 0 && mobility === 1) return 'X';
-        if (team === 1 && mobility === 0) return 'o';
-        if (team === 1 && mobility === 1) return 'O';
+        if (value.reachable) return 3
+        if (team === 0 && mobility === 0) return 1;
+        if (team === 0 && mobility === 1) return 7;
+        if (team === 1 && mobility === 0) return 2;
+        if (team === 1 && mobility === 1) return 9;
 
     }
 
