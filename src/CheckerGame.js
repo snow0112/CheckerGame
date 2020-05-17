@@ -5,6 +5,7 @@ import Rule from './Rule'
 
 
 
+
 export default class CheckerGame extends Component {
 
     constructor(props){
@@ -69,6 +70,7 @@ export default class CheckerGame extends Component {
         } )
 
         return (
+            <>
             <div className="game">
             <div className="game-board">
             
@@ -82,6 +84,10 @@ export default class CheckerGame extends Component {
                     <Rule />
                 </div>
             </div>
+            
+            
+            </>
+            
         )
     }
 }
